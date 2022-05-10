@@ -1,0 +1,107 @@
+@import './variables.scss';
+
+.register {
+  width: 100%;
+  height: 100%;
+
+  .registerHeader {
+    padding: 0.5rem 0;
+    @include flex();
+    justify-content: space-between;
+    border-bottom: 0.01rem solid rgba(0, 0, 0, 0.2);
+
+    .signIn {
+      @include buttonStyles(transparent, 0.5rem, 0.1rem solid $redColor);
+      @include borderRadius(0.3rem);
+
+      a {
+        color: $blackColor;
+      }
+    }
+    .signIn:hover {
+      @include buttonStyles($redColor, 0.5rem, none);
+    }
+    .signIn:hover a {
+      color: $whiteColor;
+    }
+  }
+
+  .registerBody {
+    @include flexColumnCenter();
+    margin: 1.5rem 0;
+  }
+
+  .registerWithOthers {
+    width: 20rem;
+    @include flexColumn();
+
+    .other {
+      @include flexColumnCenter();
+      gap: 0.4rem;
+
+      .account {
+        @include buttonStyles($blueColor, 0.5rem, none);
+        @include borderRadius(0.3rem);
+        width: 20rem;
+        text-align: center;
+      }
+    }
+
+    .line {
+      @include flex();
+      justify-content: center;
+      margin: 1rem 0;
+    }
+  }
+
+  .registerForm {
+    @include flexColumn();
+    align-items: center;
+    width: 20rem;
+    gap: 0.5rem;
+  }
+}
+
+.formGroup {
+  @include flexColumn();
+  .form {
+    @include borderRadius(0.3rem);
+    width: 20rem;
+    height: 2rem;
+    padding-inline-start: 0.5rem;
+    outline: none;
+    border: 0.1rem solid rgba(0, 0, 0, 0.4);
+  }
+
+  .btn {
+    @include buttonStyles($redColor, 0.5rem, none);
+    @include borderRadius(0.3rem);
+    width: 20rem;
+    margin-top: 1rem;
+  }
+
+  span {
+    @include flex();
+    justify-content: space-between;
+  }
+
+  label {
+    font-weight: $SemiBoldFont;
+  }
+}
+
+.registerFooter {
+  @include flex();
+  justify-content: space-between;
+  border-top: 0.01rem solid rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (max-width: 362px) {
+  .btn,
+  .form,
+  .registerForm,
+  .account,
+  .registerWithOthers {
+    width: 100%;
+  }
+}

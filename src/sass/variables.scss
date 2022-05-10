@@ -1,0 +1,52 @@
+// @desc Fonts-Weights
+$normalFonts: 300;
+$SemiBoldFont: 500;
+$BoldFont: 800;
+
+// @desc Colors-Scheme
+$redColor: #f92b4d;
+$lightRedColor: rgba(207, 36, 36, 0.5);
+$blueColor: #0166d6;
+$whiteColor: rgba(255, 255, 255, 1);
+$blackColor: rgba(0, 0, 0, 1);
+
+// @desc Flexbox-Styling
+@mixin flex {
+  display: flex;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flexColumnCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+//@desc button-style
+@mixin buttonStyles($color, $size, $border) {
+  padding: $size;
+  color: $whiteColor;
+  background-color: $color;
+  border: $border;
+  cursor: pointer;
+}
+
+@mixin borderRadius($size) {
+  border-radius: $size;
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  -ms-border-radius: $size;
+  -o-border-radius: $size;
+}
