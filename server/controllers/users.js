@@ -9,7 +9,25 @@ const User = require('../models/users');
 // @desc Post user data
 // @route Method: POST ('/users')
 // @access Private && User
-const registerUser = (request, response) => {
+const registerUser = async (request, response) => {
+  const { name, email, password } = request.body;
+
+  if (!name || !email || !password) {
+    response.status(400).json({
+      message: 'Fill the form',
+    });
+  }
+
+  // @desc **Checking if the user is/has already registered** //
+  // @desc validation for already existing users
+  const isRegistered = await User.findOne({ email });
+
+  if (isRegistered) {
+    response.status(400).json({
+      message: 'already registered',
+    });
+  }
+
   try {
   } catch (error) {
     console.error(error);
@@ -20,7 +38,7 @@ const registerUser = (request, response) => {
 // @desc Post user data
 // @route Method: POST ('/users/login')
 // @access Private && User
-const loginUser = (request, response) => {
+const loginUser = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
@@ -31,7 +49,7 @@ const loginUser = (request, response) => {
 // @desc Get user data
 // @route Method: GET ('/users/profile')
 // @access Private && User
-const userProfile = (request, response) => {
+const userProfile = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
@@ -47,7 +65,7 @@ const userProfile = (request, response) => {
 // @route Method: GET ('/users')
 // @access Private && Admin
 
-const getUsers = (request, response) => {
+const getUsers = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
@@ -58,7 +76,7 @@ const getUsers = (request, response) => {
 // @desc Post user data
 // @route Method: POST ('/users')
 // @access Private && Admin
-const postUsers = (request, response) => {
+const postUsers = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
@@ -69,7 +87,7 @@ const postUsers = (request, response) => {
 // @desc Put user data
 // @route Method: PUT ('/users/:ID')
 // @access Private && Admin
-const putUsers = (request, response) => {
+const putUsers = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
@@ -80,7 +98,7 @@ const putUsers = (request, response) => {
 // @desc Delete user data
 // @route Method: DELETE ('/users/:ID')
 // @access Private && Admin
-const deleteUsers = (request, response) => {
+const deleteUsers = async (request, response) => {
   try {
   } catch (error) {
     console.error(error);
