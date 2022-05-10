@@ -6,8 +6,13 @@ const app = express();
 
 dotenv.config({ path: '.env' });
 
+// @desc Middleware
+app.use(morgan('tiny'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // @desc Routes
-app.use('/', require('./routes/users.js'));
+app.use('/users', require('./routes/users.js'));
 
 // @desc PORT
 app.listen(PORT, () => {
