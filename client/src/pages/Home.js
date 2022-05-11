@@ -3,16 +3,17 @@ import { Sidebar, Feed, Chat } from '../components';
 
 const Home = () => {
   return (
-    <HomeFeed>
+    <div style={css}>
       <Sidebar />
       <Feed />
       <Chat />
-    </HomeFeed>
+    </div>
   );
 };
 
-export const HomeFeed = {
+const css = {
   display: 'flex',
+  justifyContent: 'space-between',
 };
 
 export default Home;
